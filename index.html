@@ -11,15 +11,14 @@
     <form id = "form">
         <input type = text id = input>
         <button type="submit">‍🔎</button>
+        <select id = select>
+            <option value = 2> 2 </option>
+            <option value= 5>5</option>
+            <option value = 10 selected >10</option>
+        </select>
     </form>
 </div>
-<div id = "select">
-    <select form = "form">
-        <option value = 5> 5 </option>
-        <option value= 20 >20</option>
-        <option value = "2" >2</option>
-    </select>
-</div>
+
 <div>
     <img id ="spin" src = "giphy.gif" height= 150 style="display:none;"/>
 </div>
@@ -41,7 +40,7 @@
             const input = document.getElementById("input");
             const select = document.getElementById("select");
             console.log(select.value);
-            const response = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${input.value}&page=2&limit=2`);
+            const response = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${input.value}&page=2&limit=${select.value}`);
             data = await response.json();
             spin.style.display = "none";
             render();
@@ -55,9 +54,11 @@
             result += `<li>
                 <b>${item.title}</b>
                 <p>${item.thumbnail.alt_text}</p>
+                <i>Width: ${item.thumbnail.width}</i>
+
             </li>`;
         }
-
+        //list.innerHTML += '<p><img  src =
         list.innerHTML = result
     }
 </script>
