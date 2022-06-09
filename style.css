@@ -2,3 +2,14 @@ form{
     display: flex;
     flex-direction: row;
 }
+h1{
+    text-align: center;
+}
+div{
+    display: flex;
+    justify-content: center;
+}
+li{
+    list-style-type: none;
+}
+
